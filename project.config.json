@@ -2,7 +2,7 @@
   "miniprogramRoot": "./dist",
   "projectname": "myApp",
   "description": "react",
-  "appid": "touristappid",
+  "appid": "wx4949a3afa9e6fe87",
   "setting": {
     "urlCheck": true,
     "es6": false,
