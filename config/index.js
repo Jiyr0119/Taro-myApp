@@ -25,7 +25,7 @@ const config = {
   defineConstants: {
   },
   copy: {
-     patterns: [
+    patterns: [
     ],
     options: {
     }
@@ -34,7 +34,20 @@ const config = {
     module: {
       postcss: {
         autoprefixer: {
-          enable: true
+          enable: true,
+          config: {
+            browsers: [
+              'last 3 versions',
+              'Android >= 4.1',
+              'ios >= 8'
+            ]
+          }
+        },
+        pxtransform: {
+          enable: true,
+          config: {
+
+          }
         },
         url: {
           enable: true,
