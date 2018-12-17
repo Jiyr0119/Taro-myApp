@@ -1,6 +1,6 @@
 const config = {
   projectName: 'myApp',
-  date: '2018-12-16',
+  date: '2018-12-17',
   designWidth: 750,
   deviceRatio: {
     '640': 2.34 / 2,
@@ -25,7 +25,7 @@ const config = {
   defineConstants: {
   },
   copy: {
-    patterns: [
+     patterns: [
     ],
     options: {
     }
@@ -34,20 +34,7 @@ const config = {
     module: {
       postcss: {
         autoprefixer: {
-          enable: true,
-          config: {
-            browsers: [
-              'last 3 versions',
-              'Android >= 4.1',
-              'ios >= 8'
-            ]
-          }
-        },
-        pxtransform: {
-          enable: true,
-          config: {
-
-          }
+          enable: true
         },
         url: {
           enable: true,
