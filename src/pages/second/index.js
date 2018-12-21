@@ -1,6 +1,7 @@
 import Taro, { Component } from "@tarojs/taro";
-import { View, Swiper, SwiperItem } from "@tarojs/components";
-import { AtAccordion, AtList, AtListItem  } from "taro-ui";
+import { View, Text, Image } from "@tarojs/components";
+import { AtAccordion, AtList, AtListItem, AtCurtain, AtButton } from "taro-ui";
+import indexPng from "../../assets/images/index.png";
 import "./index.less";
 
 export default class Index extends Component {
@@ -8,7 +9,17 @@ export default class Index extends Component {
     navigationBarTitleText: "第二页"
   };
 
-  componentWillMount() {}
+  constructor() {
+    super(...arguments);
+    this.state = {
+      isOpened: false,
+      closeBtnPosition: "top"
+    };
+  }
+
+  componentWillMount() {
+    console.log(this.$router.params);
+  }
 
   componentDidMount() {}
 
@@ -18,28 +29,22 @@ export default class Index extends Component {
 
   componentDidHide() {}
 
+  handleChange() {
+    this.setState({
+      isOpened: true
+    });
+  }
+
+  onClose() {
+    this.setState({
+      isOpened: false
+    });
+  }
+
   render() {
     return (
       <View className="index">
-        <Swiper
-          className="test-h"
-          indicatorColor="#999"
-          indicatorActiveColor="#333"
-          vertical
-          circular
-          indicatorDots
-          autoplay
-        >
-          <SwiperItem>
-            <View className="demo-text-1">1</View>
-          </SwiperItem>
-          <SwiperItem>
-            <View className="demo-text-2">2</View>
-          </SwiperItem>
-          <SwiperItem>
-            <View className="demo-text-3">3</View>
-          </SwiperItem>
-        </Swiper>
+        <Text>{this.$router.params.id}</Text>
         <AtAccordion
           title="标题三"
           icon={{ value: "chevron-down", color: "red", size: "15" }}
@@ -65,6 +70,14 @@ export default class Index extends Component {
             />
           </AtList>
         </AtAccordion>
+        <AtCurtain
+          isOpened={this.state.isOpened}
+          onClose={this.onClose.bind(this)}
+          closeBtnPosition={this.state.closeBtnPosition}
+        >
+          <Image style="width:100%;height:250px" src={indexPng} />
+        </AtCurtain>
+        <AtButton onClick={this.handleChange.bind(this)}>右上关闭幕帘</AtButton>
       </View>
     );
   }
