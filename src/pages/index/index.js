@@ -57,10 +57,6 @@ export default class Index extends Component {
     let { list, inputVal } = this.state;
     return (
       <View className='index'>
-        <Text onClick={this.handleGoSecond}>
-          {this.state.isOpened ? "Hello world!" : "Hello is me!"}
-        </Text>
-        <Hello name='components' />
         <Input
           className='input'
           type='text'
@@ -68,15 +64,22 @@ export default class Index extends Component {
           placeholder='to do list'
           onInput={this.inputHandler.bind(this)}
         />
-        <Text className='add' onClick={this.addItem.bind(this)}>添加</Text>
+        <Text className='add' onClick={this.addItem.bind(this)}>
+          添加
+        </Text>
         {list.map((item, index) => {
-          return;
-          <View>
-            <Text>
-              {index + 1}.{item}
-            </Text>
-          </View>;
+          return (
+            <View key={index}>
+              <Text>
+                {index + 1}.{item}
+              </Text>
+            </View>
+          );
         })}
+        <Hello name='components' />
+        <Text onClick={this.handleGoSecond}>
+          {this.state.isOpened ? "Hello world!" : "Hello is me!"}
+        </Text>
       </View>
     );
   }

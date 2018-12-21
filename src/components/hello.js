@@ -9,7 +9,9 @@ export default class Hello extends Component {
 
   componentWillMount() {}
 
-  componentDidMount() {}
+  componentDidMount() {
+    console.log(this.props.name)
+  }
 
   componentWillUnmount() {}
 
