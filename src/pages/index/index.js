@@ -1,18 +1,20 @@
-import Taro, { Component } from "@tarojs/taro";
-import { View, Text, Input } from "@tarojs/components";
-import { Hello } from "../../components/hello";
-import "./index.less";
-
+import Taro, { Component } from '@tarojs/taro';
+import { View, Text, Input, Button } from '@tarojs/components';
+import { Hello } from '../../components/hello';
+import './index.less';
+import { observer, inject } from '@tarojs/mobx';
+@inject('counterStore')
+@observer
 export default class Index extends Component {
   config = {
-    navigationBarTitleText: "首页"
+    navigationBarTitleText: '首页'
   };
   constructor() {
     super(...arguments);
     this.state = {
       isOpened: false,
-      list: ["get up", "coding", "sleep"],
-      inputVal: ""
+      list: ['get up', 'coding', 'sleep'],
+      inputVal: ''
     };
   }
 
@@ -30,7 +32,7 @@ export default class Index extends Component {
 
   handleGoSecond() {
     Taro.navigateTo({
-      url: "/pages/second/index?id=Jonathan"
+      url: '/pages/second/index?id=Jonathan'
     });
   }
 
@@ -38,15 +40,29 @@ export default class Index extends Component {
     let { list } = this.state;
     const inputVal = this.inputVal;
     // 如果输入框的值为空，则返回，否则添加到事项列表里
-    if (inputVal == "") return;
+    if (inputVal == '') return;
     else {
       list.push(inputVal);
     }
     this.setState({
       list,
-      inputVal: ""
+      inputVal: ''
     });
   }
+  increment = () => {
+    const { counterStore } = this.props;
+    counterStore.increment();
+  };
+
+  decrement = () => {
+    const { counterStore } = this.props;
+    counterStore.decrement();
+  };
+
+  incrementAsync = () => {
+    const { counterStore } = this.props;
+    counterStore.incrementAsync();
+  };
 
   // 输入框 onInput 的时候，它的值暂存起来
   inputHandler(e) {
@@ -55,6 +71,9 @@ export default class Index extends Component {
 
   render() {
     let { list, inputVal } = this.state;
+    const {
+      counterStore: { counter }
+    } = this.props;
     return (
       <View className='index'>
         <Input
@@ -77,9 +96,13 @@ export default class Index extends Component {
           );
         })}
         <Hello name='components' />
-        <Text onClick={this.handleGoSecond}>
-          {this.state.isOpened ? "Hello world!" : "Hello is me!"}
+        <Text className='index-color' onClick={this.handleGoSecond}>
+          {this.state.isOpened ? 'Hello world!' : 'Hello is me!'}
         </Text>
+        <Button onClick={this.increment}>+</Button>
+        <Button onClick={this.decrement}>-</Button>
+        <Button onClick={this.incrementAsync}>Add Async</Button>
+        <Text>{counter}</Text>
       </View>
     );
   }
