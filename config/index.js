@@ -22,13 +22,10 @@ const config = {
       ]
     }
   },
-  defineConstants: {
-  },
+  defineConstants: {},
   copy: {
-    patterns: [
-    ],
-    options: {
-    }
+    patterns: [],
+    options: {}
   },
   weapp: {
     module: {
@@ -67,11 +64,12 @@ const config = {
           enable: true
         }
       }
-    }
+    },
+    esnextModules: ['taro-ui'],
   }
 }
 
-module.exports = function (merge) {
+module.exports = function(merge) {
   if (process.env.NODE_ENV === 'development') {
     return merge({}, config, require('./dev'))
   }

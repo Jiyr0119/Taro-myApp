@@ -1,5 +1,5 @@
 {
-  "miniprogramRoot": "./dist",
+  "miniprogramRoot": "dist/",
   "projectname": "myApp",
   "description": "myApp",
   "appid": "wx4949a3afa9e6fe87",
@@ -9,5 +9,8 @@
     "postcss": false,
     "minified": false
   },
-  "compileType": "miniprogram"
+  "compileType": "miniprogram",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {}
 }

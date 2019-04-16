@@ -9,6 +9,7 @@ import {
 // eslint-disable-next-line react/require-render-return
 export default class Indexes extends Taro.Component {
   constructor() {
+    super(...arguments);
     this.state = {
       // eslint-disable-next-line react/no-unused-state
       list: [{
@@ -42,15 +43,14 @@ export default class Indexes extends Taro.Component {
   }
   render() {
     const list = this.state.list;
-    return ( <View style ='height:100vh' >
-      <AtIndexes list ={
+    return ( < View style = 'height:100vh' >
+      <AtIndexes list = {
         list
       }
-        onClick= {
+      onClick = {
         this.onClick.bind(this)
-      }
-      >
-      <View > 自定义内容 </View> </AtIndexes > </View>
+      } >
+      <View> 自定义内容 </View> </AtIndexes> </View>
     )
   }
 }
