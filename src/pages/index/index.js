@@ -11,17 +11,25 @@ export default class Index extends Component {
   };
   constructor() {
     super(...arguments);
+    // let golabData = { counterStore };
+    const { counterStore } = this.props;
+    console.log('counterStore', counterStore);
     this.state = {
       isOpened: false,
       list: ['get up', 'coding', 'sleep'],
-      inputVal: ''
+      inputVal: '',
+      isIPhoneX: counterStore.isIPhoneX,
+      message: '',
+      cityDatas: {},
+      hourlyDatas: [],
+      weatherIconUrl: counterStore.weatherIconUrl
     };
   }
 
   componentWillMount() {}
 
   componentDidMount() {
-    console.log(this.config);
+    console.log('config', this.config);
   }
 
   componentWillUnmount() {}
