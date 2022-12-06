@@ -5846,13 +5846,17 @@ qrcode-terminal@^0.11.0:
   version "0.11.0"
   resolved "http://registry.npm.taobao.org/qrcode-terminal/download/qrcode-terminal-0.11.0.tgz#ffc6c28a2fc0bfb47052b47e23f4f446a5fbdb9e"
 
-qs@6.5.2, qs@~6.5.2:
+qs@6.5.2:
   version "6.5.2"
   resolved "http://registry.npm.taobao.org/qs/download/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
 
 qs@^6.4.0, qs@^6.5.1:
   version "6.6.0"
   resolved "http://registry.npm.taobao.org/qs/download/qs-6.6.0.tgz#a99c0f69a8d26bf7ef012f871cdabb0aee4424c2"
+
+qs@~6.5.2:
+  version "6.5.3"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.3.tgz#3aeeffc91967ef6e35c0e488ef46fb296ab76aad"
 
 querystring-es3@^0.2.0:
   version "0.2.1"
@@ -7071,9 +7075,9 @@ tar@^4, tar@^4.0.2:
     safe-buffer "^5.1.2"
     yallist "^3.0.2"
 
-taro-ui@^1.5.2:
-  version "1.5.2"
-  resolved "http://registry.npm.taobao.org/taro-ui/download/taro-ui-1.5.2.tgz#c74ac8a8b304e1e924e882a6260412e0b7602af5"
+taro-ui@^1.5.4:
+  version "1.5.4"
+  resolved "https://registry.npmmirror.com/taro-ui/-/taro-ui-1.5.4.tgz#9dae81fdabe86fe27381def19cbc9eca337078b6"
   dependencies:
     "@types/react" "^16.7.3"
     bind-decorator "^1.0.11"
